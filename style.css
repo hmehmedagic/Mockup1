@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@media (max-width: 945px) {
+    .navbar {
+        display: none;
+    }
+    .hamburger-icon {
+        display: block;
+    }
+}
+
 .navbar {
     background-color: black;
     overflow: hidden;
     font-family: "Noto Sans JP", sans-serif;
     font-weight: bold;
+    height: 70px;
 }
 
 .navbar ul {
@@ -13,10 +23,7 @@
     overflow: hidden;
     display: flex;
     justify-content: space-between;
-}
-
-.navbar li {
-    float: left;
+    align-items: top;
 }
 
 .navbar li a {
@@ -57,6 +64,7 @@
 
 #mainbtn {
     position: relative;
+    height: 70px;
     background-color: rgb(119, 12, 0);
 }
 
@@ -66,7 +74,7 @@
     top: 0;
     left: 109px;
     width: 46px;
-    height: 51px;
+    height: 70px;
     background-color: rgb(119, 12, 0);
     clip-path: polygon(0 0, 1% 0%, 100% 100%, 0% 100%);
 }
@@ -79,6 +87,8 @@
 
 #endBtn {
     position: relative;
+    height: 70px;
+    background-color: white;
 }
 
 #endBtn a {
@@ -86,33 +96,36 @@
     color: rgb(241, 57, 50);
 }
 
-
-/*#endBtn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 102px;
-    width: 46px;
-    height: 51px;
-    background-color: white;
-    clip-path: polygon(99% 0, 100% 0%, 100% 100%, 0% 100%);
-}*/
-
 #endBtn::after {
     content: '';
     position: absolute;
     top: 0;
-    right: 101px;
-    width: 50%;
+    right: 157px;
+    width: 30%;
     height: 100%;
     background-color: white;
     clip-path: polygon(90% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
+#endBtn:hover,
 #endBtn:hover a,
 #endBtn:hover::after {
     color: white;
     background-color: rgb(241, 57, 50);
+}
+
+.color-change {
+    overflow: hidden;
+    height: 40px;
+    filter: brightness(0) saturate(100%) invert(31%) sepia(67%) saturate(3536%) hue-rotate(345deg) brightness(102%) contrast(93%);
+}
+
+#endBtn:hover a .color-change {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(222deg) brightness(103%) contrast(102%);
+}
+
+.color-change {
+    margin-right: 15px;
 }
 
 body,
@@ -167,7 +180,8 @@ html {
 
 .nc-container h2 {
     font-size: 48px;
-    text-shadow: 2px 2px 8px rgba(140, 70, 62, 0.9);
+    color: white;
+    text-shadow: 0 0 1px #FFF, 0 0 2px #FFF, 0 0 4px #FFF, 0 0 8px rgb(140, 70, 62), 0 0 30px rgb(140, 70, 62), 0 0 40px rgb(140, 70, 62), 0 0 55px rgb(140, 70, 62), 0 0 75px rgb(140, 70, 62);
 }
 
 .learnMore {
@@ -181,14 +195,17 @@ html {
 
 .sale {
     margin-top: 20vh;
+    margin-left: 30px;
     display: flex;
     justify-content: space-between;
+    transition: left 0.3s ease;
 }
 
 .sale .saleButton {
     display: flex;
     align-items: center;
     text-decoration: none;
+    position: relative;
 }
 
 .sale .saleButton img {
@@ -196,34 +213,53 @@ html {
     height: auto;
     margin-right: 10px;
     margin-left: 5px;
+    transition: left 0.3s ease;
 }
 
-.sale h1 {
+.sale .saleButton:hover img {
+    transform: scale(1.4);
+}
+
+.sale .saleButton h1 {
     background: rgb(119, 12, 0);
     color: white;
     padding: 5px;
     padding-left: 80px;
     padding-right: 80px;
+    position: relative;
+    z-index: -1;
+    transition: left 0.3s ease;
 }
 
-.sale h1::before {
+.saleButton::after {
     content: '';
     position: absolute;
-    top: 90vh;
+    top: 6vh;
     left: 65px;
     width: 50px;
     height: 120px;
     background-color: rgb(119, 12, 0);
-    clip-path: polygon(100% 0, 100% 0%, 100% 100%, 0% 50%);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
     z-index: -1;
+    transition: left 0.3s ease;
+}
+
+.saleButton:hover::after {
+    left: 3.7vw;
+}
+
+.saleButton:hover h1 {
+    left: -10px;
+    text-shadow: 0 0 1px #FFF, 0 0 2px #FFF, 0 0 4px #FFF, 0 0 8px white, 0 0 30px white, 0 0 40px white, 0 0 55px white, 0 0 75px white;
 }
 
 .wTButton img {
     width: 300px;
+    margin-left: auto;
 }
 
-.sale .wTButton {
-    margin-left: auto;
+.wTButton img:hover {
+    opacity: 0.5;
 }
 
 .credits {
@@ -288,3 +324,9 @@ html {
 #paraP5Logo {
     width: 3%;
 }
+
+
+/* .arrow {
+    height: 40px;
+    width: 200px;
+}*/
